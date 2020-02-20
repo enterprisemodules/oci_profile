@@ -1,0 +1,71 @@
+---
+
+#
+# Tenants
+#
+oci_profile::tenants::list:                                {}
+#
+# Compartments
+#
+oci_profile::compartments::list:                           {}
+#
+# Identity
+#
+oci_profile::identity::user_list:                          {}
+oci_profile::identity::group_list:                         {}
+oci_profile::identity::dynamic_group_list:                 {}
+oci_profile::identity::tag_name_space_list:                {}
+oci_profile::identity::tag_list:                           {}
+#
+# Key management
+#
+oci_profile::key_management::vault_list:                   {}
+oci_profile::key_management::key_list:                     {}
+#
+# Budgets
+#
+oci_profile::budget::list:                                  {}
+#
+# Network objects
+#
+oci_profile::network::cpe_list:                             {}
+oci_profile::network::dhcp_options_list:                    {}
+oci_profile::network::drg_list:                             {}
+oci_profile::network::internet_gateway_list:                {}
+oci_profile::network::ip_sec_connection_list:               {}
+oci_profile::network::local_peering_gateway_list:           {}
+oci_profile::network::nat_gateway_list:                     {}
+oci_profile::network::network_security_group_list:          {}
+oci_profile::network::public_ip_list:                       {}
+oci_profile::network::remote_peering_connection_list:       {}
+oci_profile::network::route_table_list:                     {}
+oci_profile::network::security_list_list:                   {}
+oci_profile::network::service_gateway_list:                 {}
+oci_profile::network::subnet_list:                          {}
+oci_profile::network::vcn_list:                             {}
+oci_profile::network::virtual_circuit_list:                 {}
+#
+# Block volumes
+#
+oci_profile::block_storage::volume_list:                    {}
+oci_profile::block_storage::volume_defaults:                {}
+oci_profile::block_storage::volume_group_list:              {}
+oci_profile::block_storage::volume_group_defaults:          {}
+oci_profile::block_storage::volume_backup_list:             {}
+oci_profile::block_storage::volume_backup_defaults:         {}
+oci_profile::block_storage::volume_backup_policy_list:      {}
+oci_profile::block_storage::volume_backup_policy_defaults:  {}
+#
+# object storage
+#
+oci_profile::object_storage::bucket_list:                   {}
+#
+# file storage
+#
+oci_profile::file_storage::file_system_list:                {}
+oci_profile::file_storage::export_list:                     {}
+#
+# Instances
+#
+oci_profile::instances::list:                               {}
+oci_profile::instances::defaults:                           {}
