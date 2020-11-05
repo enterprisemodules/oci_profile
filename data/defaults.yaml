@@ -69,3 +69,7 @@ oci_profile::file_storage::export_list:                     {}
 #
 oci_profile::instances::list:                               {}
 oci_profile::instances::defaults:                           {}
+#
+# VM's
+#
+oci_profile::vms::list:                                     {}
