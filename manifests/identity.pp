@@ -21,6 +21,6 @@ class oci_profile::identity(
   create_resources(oci_identity_user, $user_list)
   create_resources(oci_identity_group, $group_list)
   create_resources(oci_identity_dynamic_group, $dynamic_group_list)
-  create_resources(oci_identity_tag_name_space, $tag_name_space_list)
+  create_resources(oci_identity_tag_namespace, $tag_name_space_list)
   create_resources(oci_identity_tag, $tag_list)
 }
