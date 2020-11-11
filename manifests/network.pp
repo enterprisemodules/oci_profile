@@ -17,22 +17,25 @@ class oci_profile::network(
   Hash $vcn_list,
   Hash $virtual_circuit_list,
 ) inherits oci_profile {
-echo{"OCI vcn(s) ${vcn_list.keys.join(',')} ": withpath => false}
-echo{"OCI cpe('s) ${cpe_list.keys.join(',')} ": withpath => false}
-echo{"OCI dhcp_options ${dhcp_options_list.keys.join(',')} ": withpath => false}
-echo{"OCI drg('s) ${drg_list.keys.join(',')} ": withpath => false}
-echo{"OCI internet gateway(s) ${internet_gateway_list.keys.join(',')} ": withpath => false}
-echo{"OCI ipsec connection(s) ${ip_sec_connection_list.keys.join(',')} ": withpath => false}
-echo{"OCI local peering gateway(s) ${local_peering_gateway_list.keys.join(',')} ": withpath => false}
-echo{"OCI nat gateway(s) ${nat_gateway_list.keys.join(',')} ": withpath => false}
-echo{"OCI network security group(s) ${network_security_group_list.keys.join(',')} ": withpath => false}
-echo{"OCI public ip(s) ${public_ip_list.keys.join(',')} ": withpath => false}
-echo{"OCI remote peering connection(s) ${remote_peering_connection_list.keys.join(',')} ": withpath => false}
-echo{"OCI route table(s) ${route_table_list.keys.join(',')} ": withpath => false}
-echo{"OCI security list(s) ${security_list_list.keys.join(',')} ": withpath => false}
-echo{"OCI service gateway(s) ${service_gateway_list.keys.join(',')} ": withpath => false}
-echo{"OCI subnet(s) ${subnet_list.keys.join(',')} ": withpath => false}
-echo{"OCI virtual circuit(s) ${virtual_circuit_list.keys.join(',')} ": withpath => false}
+
+  easy_type::debug_evaluation()
+
+  oci_profile::utils::echo { 'ensuring OCI vcn(s)': list => $vcn_list }
+  oci_profile::utils::echo { 'ensuring OCI cpe(s)': list => $cpe_list }
+  oci_profile::utils::echo { 'ensuring OCI dhcp_options': list => $dhcp_options_list }
+  oci_profile::utils::echo { 'ensuring OCI drg(s)': list => $drg_list }
+  oci_profile::utils::echo { 'ensuring OCI internet gateway(s)': list => $internet_gateway_list }
+  oci_profile::utils::echo { 'ensuring OCI ipsec connection(s)': list => $ip_sec_connection_list }
+  oci_profile::utils::echo { 'ensuring OCI local peering gateway(s)': list => $local_peering_gateway_list }
+  oci_profile::utils::echo { 'ensuring OCI nat gateway(s)': list => $nat_gateway_list }
+  oci_profile::utils::echo { 'ensuring OCI network security group(s)': list => $network_security_group_list }
+  oci_profile::utils::echo { 'ensuring OCI public ip(s)': list => $public_ip_list }
+  oci_profile::utils::echo { 'ensuring OCI remote peering connection(s)': list => $remote_peering_connection_list }
+  oci_profile::utils::echo { 'ensuring OCI route table(s)': list => $route_table_list }
+  oci_profile::utils::echo { 'ensuring OCI security list(s)': list => $security_list_list }
+  oci_profile::utils::echo { 'ensuring OCI service gateway(s)': list => $service_gateway_list }
+  oci_profile::utils::echo { 'ensuring OCI subnet(s)': list => $subnet_list }
+  oci_profile::utils::echo { 'ensuring OCI virtual circuit(s)': list => $virtual_circuit_list }
   #
   # This is a simple way to get started. It is easy to get started, but
   # soon your hiera yaml become a nightmare. Our advise is when you need

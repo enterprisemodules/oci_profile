@@ -5,7 +5,7 @@ class oci_profile::vms(
 
   easy_type::debug_evaluation()
 
-  oci_profile::echo {'ensuring OCI VM(s)': list => $list }
+  oci_profile::utils::echo {'ensuring OCI VM(s)': list => $list }
   #
   # This is a simple way to get started. It is easy to get started, but
   # soon your hiera yaml become a nightmare. Our advise is when you need

@@ -58,7 +58,7 @@ oci_profile::block_storage::volume_backup_policy_defaults:  {}
 #
 # object storage
 #
-oci_profile::object_storage::bucket_list:                   {}
+oci_profile::object_storage::list:                          {}
 #
 # file storage
 #

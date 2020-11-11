@@ -9,10 +9,13 @@ class oci_profile::block_storage(
   Hash $volume_backup_policy_defaults,
   Hash $volume_backup_policy_list,
 ) inherits oci_profile {
-  echo {"OCI volumes ${volume_list.keys.join(',')} ": withpath => false}
-  echo {"OCI volume groups ${volume_group_list.keys.join(',')} ": withpath => false}
-  echo {"OCI volume backups ${volume_backup_list.keys.join(',')} ": withpath => false}
-  echo {"OCI volume backups policies ${volume_backup_policy_list.keys.join(',')} ": withpath => false}
+
+  easy_type::debug_evaluation()
+
+  oci_profile::utils::echo {'ensuring OCI volume(s)': list => $volume_list }
+  oci_profile::utils::echo {'ensuring OCI volume group(s)': list => $volume_group_list }
+  oci_profile::utils::echo {'ensuring OCI volume backup(s)': list => $volume_backup_list }
+  oci_profile::utils::echo {'ensuring OCI volume backups policy(ies)': list => $volume_backup_policy_list }
   #
   # This is a simple way to get started. It is easy to get started, but
   # soon your hiera yaml become a nightmare. Our advise is when you need

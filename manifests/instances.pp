@@ -3,7 +3,11 @@ class oci_profile::instances(
   Hash $list,
   Hash $defaults,
 ) inherits oci_profile {
-  echo {"OCI instance(s) ${list.keys.join(',')} ": withpath => false}
+
+  easy_type::debug_evaluation()
+
+  oci_profile::utils::echo {'ensuring OCI enstance(s)': list => $list }
+
   #
   # This is a simple way to get started. It is easy to get started, but
   # soon your hiera yaml become a nightmare. Our advise is when you need
