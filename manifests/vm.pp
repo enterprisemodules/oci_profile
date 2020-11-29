@@ -23,7 +23,6 @@ define oci_profile::vm(
   Hash      $instance_defaults   = lookup('oci_profile::vm::instance_defaults'),
 ){
   $sanetized_name        = $name.regsubst('_', '-', 'G')
-  $sanetized_compartment = $compartment.regsubst('/', '-', 'G')
 
   if $compartment == '' or $compartment == '/' {
     $full_instance_name     = "${tenant}/${name}"
@@ -62,11 +61,10 @@ define oci_profile::vm(
     launch_mode         => 'NATIVE',
     ssh_authorized_keys => $ssh_authorized_keys,
     user_data           => $install_puppet,
-    extended_metadata   => {
+    freeform_tags       => {
                             'disk_info'           => oci_profile::disk_properties_to_metadata($disks),
                             'role'                => $role,
                             'node_type'           => $node_type,
-                            'compartment'         => $sanetized_compartment,
                             'additional_profiles' => $additional_profiles,
                            },
     region              => $region,
