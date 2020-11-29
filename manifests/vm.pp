@@ -23,7 +23,6 @@ define oci_profile::vm(
   Hash      $instance_defaults   = lookup('oci_profile::vm::instance_defaults'),
 ){
   $sanetized_name        = $name.regsubst('_', '-', 'G')
-  $sanetized_compartment = $compartment.regsubst('/', '-', 'G')
 
   if $compartment == '' or $compartment == '/' {
     $full_instance_name     = "${tenant}/${name}"
@@ -63,12 +62,16 @@ define oci_profile::vm(
     ssh_authorized_keys => $ssh_authorized_keys,
     user_data           => $install_puppet,
     extended_metadata   => {
-                            'disk_info'           => oci_profile::disk_properties_to_metadata($disks),
+                            # Puppet role and profile information
                             'role'                => $role,
-                            'node_type'           => $node_type,
-                            'compartment'         => $sanetized_compartment,
                             'additional_profiles' => $additional_profiles,
+                            # Extra information for hiera lookups
+                            'node_type'           => $node_type,
+                            'deployment_zone'     => $deployment_zone,
+                            # Disk creation information
+                            'disk_info'           => oci_profile::disk_properties_to_metadata($disks),
                            },
+
     region              => $region,
     source_details      => { source_type => 'image', image_type => 'image', image => $image },
     vnics               => {'nic1' => {
